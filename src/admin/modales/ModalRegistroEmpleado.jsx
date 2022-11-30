@@ -3,10 +3,10 @@ import { AppContext } from '../../context/AppContext'
 import './ModalRegistroEmpleado.css'
 import icono_cerrar from '../../img/close.svg'
 import { PeticionesApi } from '../../PeticionesApi/PeticionesApi'
- 
+import { BallTriangle } from 'react-loader-spinner' 
 
 const ModalRegistroEmpleado = () => {
-    const {setModal, empleado, setEmpleado}=useContext(AppContext);
+    const {setModal, empleado, setEmpleado,load, setload}=useContext(AppContext);
     const {registrarEmpleado, cargarEmpleados, editarEmpleado}=PeticionesApi();//*
     const [dataEmpleado, setDataEmpleado] = useState({
         cedula:empleado.cedula? empleado.cedula:"",
@@ -15,6 +15,7 @@ const ModalRegistroEmpleado = () => {
         telefono:empleado.telefono? empleado.telefono:"",
         direccion: empleado.direccion? empleado.direccion:""
     });
+
     const onchange=(e)=>{
         setDataEmpleado({
             ...dataEmpleado, 
@@ -23,6 +24,7 @@ const ModalRegistroEmpleado = () => {
     )}
     const guardarEmpleado=async()=>{
         // console.log(empleado)
+        setload(true)
         if(empleado.cedula){
             await editarEmpleado(empleado._id, dataEmpleado)
             console.log("actualizando")
@@ -33,7 +35,8 @@ const ModalRegistroEmpleado = () => {
         console.log(dataEmpleado)
         
         await cargarEmpleados()
-        setModal(false)      
+        setModal(false) 
+        setload(false)     
     }  
     const handleCerrarModalEmpleado=()=>{
         setModal(false)
@@ -91,7 +94,13 @@ const ModalRegistroEmpleado = () => {
              />            
             <button
             onClick={guardarEmpleado}
-            >{!empleado.cedula? "Registrar" : "Actualizar"}</button>
+            >
+                {load? 
+                        <BallTriangle color='green' width={35} height={35}/>
+                        :
+                        empleado.nombre?"Editar":"Guardar"
+                }
+            </button>
         </div>    
     </div>
   )

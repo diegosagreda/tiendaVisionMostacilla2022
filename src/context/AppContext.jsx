@@ -22,6 +22,7 @@ export const AppContext=createContext();
   const [empleado, setEmpleado] = useState({});
   const [usuarios, setUsuarios] = useState([]);
   const [usuario, setUsuario] = useState({});  
+  const [load, setload] = useState(false)
   return (
     <AppContext.Provider value={{
         mensaje, setMensaje,
@@ -42,7 +43,8 @@ export const AppContext=createContext();
         empleados, setEmpleados,
         usuarios, setUsuarios,
         usuario, setUsuario,
-        empleado, setEmpleado
+        empleado, setEmpleado,
+        load, setload
         
     }}    
     >{children}</AppContext.Provider>

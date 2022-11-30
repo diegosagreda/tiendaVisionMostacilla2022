@@ -3,10 +3,11 @@ import { AppContext } from '../../context/AppContext'
 import './ModalRegistroCategorias.css'
 import icono_cerrar from '../../img/close.svg'
 import { PeticionesApi } from '../../PeticionesApi/PeticionesApi'
+import { BallTriangle } from 'react-loader-spinner'
  
 
 const ModalRegistroCategoria = () => {
-    const {setModal,categoria,setCategoria}=useContext(AppContext);
+    const {setModal,categoria,setCategoria,load,setload}=useContext(AppContext);
     const {registrarCategoria,cargarCategorias,editarCategoria}=PeticionesApi();
     const [data, setData] = useState(new FormData())
     const [imagenTemporal, setImagenTemporal] = useState(false);
@@ -43,6 +44,7 @@ const ModalRegistroCategoria = () => {
         //-----------------------------------------------------------------------
     }
     const guardarCategoria=async()=>{
+        setload(true)
         //Validamos si esta guardando o editando
         if(categoria.nombre){
           await editarCategoria(categoria._id,dataCategoria) 
@@ -52,6 +54,7 @@ const ModalRegistroCategoria = () => {
         }
         await cargarCategorias()
         setCategoria({})
+        setload(false)
     }
     const handleCerrarModal = ()=>{
         setModal(false);
@@ -89,11 +92,17 @@ const ModalRegistroCategoria = () => {
               {categoria.imagen &&                   
                   <img style={{'width':'100px','height':'100px'}} src={dataCategoria.imagen} alt="Imagen producto" />
               }
-             <input
+             <button
                 type="submit"
-                value={categoria.nombre ? "Editar": "Guardar"}
+          
                 onClick={guardarCategoria}
-             />
+             >
+                {load? 
+                        <BallTriangle color='green' width={35} height={35}/>
+                        :
+                        categoria.nombre?"Editar":"Guardar"
+                    }
+             </button>
         </div>    
     </div>
   )

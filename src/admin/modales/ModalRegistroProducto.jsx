@@ -3,12 +3,14 @@ import { AppContext } from '../../context/AppContext'
 import './ModalRegistroProducto.css'
 import icono_cerrar from '../../img/close.svg'
 import { PeticionesApi } from '../../PeticionesApi/PeticionesApi'
+import { BallTriangle } from 'react-loader-spinner'
 
 const ModalRegistroProducto = () => {
     const {setModal,producto,setProducto,categorias}=useContext(AppContext);
     const {registrarProducto,cargarProductos,editarProducto}=PeticionesApi();
     const [data, setData] = useState(new FormData())
     const [imagenTemporal, setImagenTemporal] = useState(false);
+    const [load, setload] = useState(false)
 
     const categoria = useRef(null)
 
@@ -51,6 +53,7 @@ const ModalRegistroProducto = () => {
    }
    
     const guardarProducto=async()=>{
+        setload(true)
         dataProducto.categoria = categoria.current.value
         //Validamos si vamos a tener una operacion de registro o actualizacion
         if(producto.nombre){
@@ -62,6 +65,7 @@ const ModalRegistroProducto = () => {
         }
         await cargarProductos()
         setProducto({})
+        setload(false)
     }
     
     const cerrarModalRegistroProducto=(e)=>{
@@ -157,12 +161,18 @@ const ModalRegistroProducto = () => {
                         ))} 
                     </select>
             </div>
-             <input
-                className='guardar-producto'
+            
+              
+                <button   className='guardar-producto'
                 type="submit"
-                value={producto.nombre?"Editar":"Guardar"}
-                onClick={guardarProducto}
-             />
+                onClick={guardarProducto}>
+                    {load? 
+                        <BallTriangle color='green' width={35} height={35}/>
+                        :
+                        producto.nombre?"Editar":"Guardar"
+                    }
+                </button>
+            
         </div>    
     </div>
   )
