@@ -1,0 +1,99 @@
+.contenedor-registro-producto{
+    background-color: rgba(0, 0, 0, .7);
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.formulario-registro-producto{
+    background-color: #cad2c5;
+    width: 80rem;
+    max-width: 95%;
+    padding: 2rem 9rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;  
+    position: relative;
+    gap: 1.1rem;
+}
+.formulario-registro-producto .cerrar{
+    position: absolute;
+    right: 4rem;
+    cursor: pointer; 
+    transition: 400ms ease-in-out all;   
+}
+.formulario-registro-producto .cerrar:hover{
+    transform: scale(1.2,1.2);   
+}
+.formulario-registro-producto h2{
+    text-align: center;
+    margin: 0;
+}
+
+.formulario-registro-producto .child{
+    display: flex;
+    justify-content: space-between;
+} 
+
+.formulario-registro-producto .child .child_image,
+.formulario-registro-producto .child .child_name,
+.formulario-registro-producto .child .child_precio,
+.formulario-registro-producto .child .child_cantidad,
+.child-2
+{
+    display: flex;
+    flex-direction: column;
+}
+.formulario-registro-producto .child .child_image > input{
+    padding: 0;
+    margin: auto 0;
+    font-size: 1.5rem;
+}
+
+/*configuracion local*/
+.formulario-registro-producto label{
+    font-size: 1.8rem; 
+    margin-bottom: 0.3rem;    
+}
+.formulario-registro-producto input,
+.formulario-registro-producto select
+{   
+    font-size: 2rem;
+    padding: 0.5rem 2rem;
+    border-radius: 1rem;
+    border: none; 
+}
+.formulario-registro-producto textarea{
+    border-radius: 1rem;
+    border: none;
+    resize: none;
+    height: 8rem;       
+}
+
+/*boton guardar */ 
+.formulario-registro-producto .guardar-producto{
+    background-color: #354f52;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 400ms ease-in-out all;
+    border: 1px solid transparent;
+    margin: 0.8rem 0;
+}
+.formulario-registro-producto .guardar-producto:hover{
+    background-color:  #cad2c5;
+    color: #354f52;
+    text-transform: uppercase;
+    font-weight: 700;
+    transform: scale(1.0,1,1.0,1); 
+    border: 1px solid  #354f52;
+}
+.formulario-registro-producto label{
+    margin: 0.8rem 0;
+}

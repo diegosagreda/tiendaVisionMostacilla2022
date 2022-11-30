@@ -1,0 +1,181 @@
+.datos-entrega{
+    grid-area: 2 / 2 / span 1 / span 1;
+    border-end-start-radius: 1rem;
+    border-end-end-radius: 1rem;
+    
+}
+.datos-entrega_formulario{
+    height:100%;
+    width: 100%;
+    padding: 1rem 2rem 0;
+    border-radius: 0 0 0.7rem;
+}
+.datos-entrega_title{
+    margin-bottom: 1.6rem;   
+}
+.datos-entrega_tabla{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows:  auto;
+    padding: 1rem 1rem 0;
+}
+.datos-entrega_tabla_calle{
+    grid-area: 2 / 1 / span 1 / span 2;
+}
+.datos-entrega_tabla_piso{
+    grid-area: 3 / 1 / span 1 / span 2;
+}
+.datos-entrega_tabla_barrio{
+    grid-area: 4 / 1 / span 1 / span 2;
+}
+.datos-entrega_tabla_nombre-recibir{
+    grid-area: 5 / 1 / span 1 / span 2;
+}
+
+.contenedor-pago_contenido .datos-personales_tabla_boton,
+.datos-personales_form-editar input{
+    grid-area: 6 / 1 / span 1 /span 2;
+    height: 4.6rem;
+    width: 28.8rem;
+    align-self: flex-end;
+    margin: 2rem auto 2rem;
+    border: 0.1rem solid transparent;
+    background-color: #588157;
+    color: #fff;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+.datos-personales_form-editar{
+    display: grid;
+    grid-template-rows: auto;
+}
+.datos-personales_form-editar p{
+    margin: 1rem;
+    font-weight: 700;
+}
+.datos-personales_form-editar span{
+    margin: 1rem;
+    font-weight: 300;
+}
+.datos-personales_form-editar p:first-child{
+    margin-top: 2rem;
+}
+.datos-personales_form-editar input{
+    grid-area: 4 / 1 / span 1 /span 1;
+}
+
+.contenedor-pago_contenido .datos-personales_tabla_boton:active,
+.datos-personales_form-editar input:active{
+    border: 0.1rem solid #000;
+    background-color: transparent;
+    color: #000;
+}
+
+
+.contenedor-pago_contenido-right{
+    grid-area: 1 / 3 / span 1 / span 1;
+    display: grid;
+    grid-template-columns: minmax(auto,50.3rem);
+}
+
+.datos-resumen{
+    width: 100%;
+    height: min-content;
+    padding: 1rem 2rem 0;
+    display: grid;
+    grid-template-rows: repeat(4,min-content);
+    background-color: #FAFAFA;
+    border-radius: 1rem;
+}
+.datos-resumen_title{
+    height: min-content;
+    margin-bottom: 1.6rem;
+    text-align: center;
+}
+.datos-resumen_productos{
+    height: 30.5rem;/*mincontent*/
+    background-color: #FFFFFF;
+    border: 1px solid #588157;
+    overflow: auto;
+}
+
+
+.datos-resumen .datos-resumen_input{
+    margin: 1rem 3.3rem 0;
+    padding: 10px;
+    border-radius: 0.8rem;
+    background-color: #FFFFFF;
+    border: 1px solid #588157;
+    cursor: pointer;
+}
+.datos-resumen_input:hover{
+    background-color: #588157;
+    color: #FFFFFF;
+    
+}
+.datos-resumen_total{
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    align-items: center;
+}
+.datos-resumen_total p,
+.datos-resumen_total span{
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #588157;
+    align-self: flex-end;
+}
+.datos-resumen_total span{
+    align-self: center;
+}
+.head-pago{
+    grid-area: 1 / 1 / span 1 / span 3;
+    width: 100%;
+    background-color: #354f52;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.head-pago_seg-telf{
+    display: grid;
+    grid-template-columns: repeat(2,auto);
+    gap: 1rem;
+
+}
+.select-off{
+    user-select: none;
+}
+.head-pago_logo{
+    width: 6.5rem;
+    height: 6.5rem;
+    cursor: pointer;
+}
+.head-pago_logo img{
+    width: 100%;
+}
+
+.footer-pago{
+    align-self: flex-end;
+    grid-area: 5 / 1 / span 1 / span 3;
+    width: 100%;
+    height: 100%;
+    background-color: #354f52;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.redes-footer_p,
+.redes-footer_p2{
+    color: #fff;
+}
+.redes-footer_p{
+    font-size: 2rem;
+    font-weight: 700;
+}
+.redes-footer_p2{
+    font-size: 1.6rem;
+    font-weight: 400;
+}

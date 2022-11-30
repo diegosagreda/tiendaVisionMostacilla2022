@@ -1,0 +1,57 @@
+.contenedor-productos{
+    width: 95%;
+    max-width: 110rem;
+    margin: auto;
+    padding: 1rem 3rem; 
+  
+       
+}
+.contenedor-productos h3{
+    text-align: center;
+    font-family: 'Kaushan Script', cursive;
+    font-size: 3rem;
+}
+.contenedor-productos > button{
+    margin: 0 2rem 0.5rem;
+    padding: 1rem 2rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    border: 1px solid transparent;
+    cursor: pointer;
+    background-color: #06d6a0;
+    color: #000000;
+    border-radius: 1rem;
+}
+.contenedor-productos > button:hover{
+    border: 1px solid  #000000;
+    background-color: #CAD2C5;
+}
+
+.contenedor-productos > button:active{
+    background-color: #06d6a0;
+}
+.contenido-productos{
+    display: grid;
+    grid-template-columns: 1fr;
+   
+}
+@media(min-width: 480px){
+    .contenido-productos{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media(min-width: 768px){
+    .contenido-productos{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+@media(min-width: 980px){
+    .contenido-productos{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        margin-bottom: 8.1rem;
+    }
+}
+
