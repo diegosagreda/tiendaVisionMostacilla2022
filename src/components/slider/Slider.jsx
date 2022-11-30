@@ -64,7 +64,7 @@ const Slider = () => {
             setTimeout(() => {
                 slideShow.current.style.transition=`500ms ease-out all`;
                 slideShow.current.style.transform=`translateX(0)`;
-            }, 20);
+            }, 40);
         }
     
     }
@@ -72,7 +72,7 @@ const Slider = () => {
     useEffect(() => {
         intervaloSlideShow.current= setInterval(()=>{
             siguiente()
-            slideShow.current.style.transition=`4000ms ease-out all`;
+            slideShow.current.style.transition=`3000ms ease-out all`;
             
         }, 5000)  
         

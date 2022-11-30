@@ -18,7 +18,6 @@ const Producto = (props) => {
         if(cantidad>0){
             setModal2(true)
         }
-        
         return 
     }
     return (
