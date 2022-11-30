@@ -7,6 +7,7 @@ import collar_colibri from '../../img/collar-colibri.jpeg'
 import menor  from '../../img/left.svg'
 import  mayor  from '../../img/rigth.svg'
 import { AppContext } from '../../context/AppContext'
+import { PeticionesApi } from '../../PeticionesApi/PeticionesApi'
 
 
 const Slider = () => {
@@ -63,7 +64,7 @@ const Slider = () => {
             setTimeout(() => {
                 slideShow.current.style.transition=`500ms ease-out all`;
                 slideShow.current.style.transform=`translateX(0)`;
-            }, 30);
+            }, 20);
         }
     
     }
@@ -71,7 +72,7 @@ const Slider = () => {
     useEffect(() => {
         intervaloSlideShow.current= setInterval(()=>{
             siguiente()
-            slideShow.current.style.transition=`5000ms ease-out all`;
+            slideShow.current.style.transition=`4000ms ease-out all`;
             
         }, 5000)  
         
@@ -91,6 +92,16 @@ const Slider = () => {
         // })
     }, []);
 
+    const {buscarProducto} = PeticionesApi();
+    const {modal2, setModal2}=useContext(AppContext)
+
+    const handleAbrir=async(id)=>{
+        await buscarProducto(id)
+   
+        setModal2(true)
+       
+    }
+
    
 
   return (
@@ -99,7 +110,7 @@ const Slider = () => {
             
                 {
                     productosDestacados.map(producto=> (
-                        <div className='slide'>
+                        <div className='slide' onClick={()=>handleAbrir(producto._id)}>
                             <a href='#'>
                                 <img src={producto.imagen} alt='colibri-grande'/>                
                             </a>
@@ -109,9 +120,7 @@ const Slider = () => {
                         </div>
                     ))
                 }
-              
-              
-              
+                  
         </div>
        
         <div className='controles'>
