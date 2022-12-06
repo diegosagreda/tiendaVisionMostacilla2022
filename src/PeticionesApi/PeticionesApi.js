@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 
 export const PeticionesApi = () => {
 
-    let production = 'https://api-vision-mostacilla.herokuapp.com/api/';
+    let production = 'https://apivisionmostacilla-production.up.railway.app/api/';
     let development = 'http://192.168.1.11:9000/api'
 
     const { setProducto,setProductos,productos,setProductosDestacados,setCategorias,setCategoria,categorias,setProductosFiltrados,setVentas, setEmpleados, usuarios, setUsuarios, setUsuario, setEmpleado, empleados} = useContext(AppContext);
